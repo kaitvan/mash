@@ -1,18 +1,29 @@
 import { Link } from "react-router-dom";
 
-function Results() {
-  return (
+interface Props {
+  future: {
+    home: string;
+    partner: string;
+    job: string;
+    salary: string;
+    car: string;
+    location: string;
+  };
+}
+
+function Results({ future }: Props) {
+  const results = (
     <>
       <div className="title">
-        <h1>Play MASH</h1>
+        <h1>Results</h1>
       </div>
       <div className="card-body">
         <div>
           <h2>Your Future</h2>
           <p>
-            You will live in Austin, Texas with your partner, Bad Bunny. You
-            will live in a house, drive a minivan, and spend your days working
-            as a television show host with an annual salary of $5,000.
+            {`You will live in ${future.location} with your partner, ${future.partner}. You
+        will live in a ${future.home}, drive a ${future.car}, and spend your days working
+        as a ${future.job} with an annual salary of $${future.salary}.`}
           </p>
         </div>
         <div>
@@ -23,6 +34,8 @@ function Results() {
       </div>
     </>
   );
+
+  return results;
 }
 
 export default Results;

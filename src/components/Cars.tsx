@@ -1,4 +1,13 @@
-const Cars = ({ onChange, data }) => {
+interface Props {
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  data: {
+    car1: string;
+    car2: string;
+    car3: string;
+  };
+}
+
+const Cars = ({ onChange, data }: Props) => {
   return (
     <>
       <input

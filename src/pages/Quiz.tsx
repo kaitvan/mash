@@ -6,34 +6,58 @@ import Salaries from "../components/Salaries";
 import Cars from "../components/Cars";
 import Locations from "../components/Locations";
 
-function Quiz() {
+interface Future {
+  home: string;
+  partner: string;
+  job: string;
+  salary: string;
+  car: string;
+  location: string;
+}
+
+interface Props {
+  getFuture: (future: Future) => void;
+}
+
+function Quiz({ getFuture }: Props) {
   const [formIsValid, setFormIsValid] = useState(false);
   const [index, setIndex] = useState(0);
-  const [data, setData] = useState({
-    home1: "mansion",
-    home2: "apartment",
-    home3: "shack",
-    home4: "house",
+  const [partnerData, setPartnerData] = useState({
     partner1: "",
     partner2: "",
     partner3: "",
+  });
+
+  const [jobData, setJobData] = useState({
     job1: "",
     job2: "",
     job3: "",
+  });
+
+  const [salaryData, setSalaryData] = useState({
     salary1: "",
     salary2: "",
     salary3: "",
+  });
+
+  const [carData, setCarData] = useState({
     car1: "",
     car2: "",
     car3: "",
+  });
+
+  const [locationData, setLocationData] = useState({
     location1: "",
     location2: "",
     location3: "",
   });
 
-  // const getRandomNumber = (array: string[]) => {
-  //   return Math.floor(Math.random() * array.length);
-  // };
+  const homes = {
+    home1: "mansion",
+    home2: "apartment",
+    home3: "shack",
+    home4: "house",
+  };
 
   const quizText = [
     {
@@ -58,46 +82,94 @@ function Quiz() {
     },
   ];
 
-  // const checkValidity = () => {
-  //   if (
-  //     input1.trim().length >= 1 &&
-  //     input2.trim().length >= 1 &&
-  //     input3.trim().length >= 1
-  //   ) {
-  //     setFormIsValid(true);
-  //   }
-  //   return formIsValid;
-  // };
-
-  const onChangeHandler = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setData((prevState) => ({ ...prevState, [name]: value }));
+  const checkValidity = () => {
+    let isValid = false;
+    if (index === 0) {
+      isValid = [...Object.values(partnerData)].every(Boolean);
+    } else if (index === 1) {
+      isValid = [...Object.values(jobData)].every(Boolean);
+    } else if (index === 2) {
+      isValid = [...Object.values(salaryData)].every(Boolean);
+    } else if (index === 3) {
+      isValid = [...Object.values(carData)].every(Boolean);
+    } else if (index === 4) {
+      isValid = [...Object.values(locationData)].every(Boolean);
+    }
+    setFormIsValid(isValid);
   };
 
-  // const checkValidity = (val1: string, val2: string, val3: string) => {
-  //   if (
-  //     val1.trim().length >= 1 &&
-  //     val2.trim().length >= 1 &&
-  //     val3.trim().length >= 1
-  //   ) {
-  //     setFormIsValid(true);
-  //   }
-  // };
+  const onChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    if (index === 0) {
+      setPartnerData((prevState) => ({ ...prevState, [name]: value }));
+    } else if (index === 1) {
+      setJobData((prevState) => ({ ...prevState, [name]: value }));
+    } else if (index === 2) {
+      setSalaryData((prevState) => ({ ...prevState, [name]: value }));
+    } else if (index === 3) {
+      setCarData((prevState) => ({ ...prevState, [name]: value }));
+    } else if (index === 4) {
+      setLocationData((prevState) => ({ ...prevState, [name]: value }));
+    }
+
+    checkValidity();
+  };
 
   let navigate = useNavigate();
   const routeChange = () => {
     navigate("/results");
   };
 
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = (e: React.SyntheticEvent) => {
     e.preventDefault();
     if (index < 4) {
       setIndex((prevState) => prevState + 1);
+      setFormIsValid(false);
     } else if (index === 4) {
+      getFuture(selectRandomFuture());
       routeChange();
     }
   };
+
+  const selectRandomFuture = () => {
+    const home =
+      Object.values(homes)[
+        Math.floor(Math.random() * Object.values(homes).length)
+      ];
+    const partner =
+      Object.values(partnerData)[
+        Math.floor(Math.random() * Object.values(partnerData).length)
+      ];
+    const job =
+      Object.values(jobData)[
+        Math.floor(Math.random() * Object.values(jobData).length)
+      ];
+    const salary =
+      Object.values(salaryData)[
+        Math.floor(Math.random() * Object.values(salaryData).length)
+      ];
+    const car =
+      Object.values(carData)[
+        Math.floor(Math.random() * Object.values(carData).length)
+      ];
+    const location =
+      Object.values(locationData)[
+        Math.floor(Math.random() * Object.values(locationData).length)
+      ];
+    return {
+      home,
+      partner,
+      job,
+      salary,
+      car,
+      location,
+    };
+  };
+
+  // const getRandomNumber = (array: string[]) => {
+  //   return Math.floor(Math.random() * array.length);
+  // };
 
   return (
     <>
@@ -110,12 +182,18 @@ function Quiz() {
           <p>{quizText[index].text}</p>
         </div>
         <form onSubmit={onSubmitHandler}>
-          {index === 0 && <Partners onChange={onChangeHandler} data={data} />}
-          {index === 1 && <Jobs onChange={onChangeHandler} data={data} />}
-          {index === 2 && <Salaries onChange={onChangeHandler} data={data} />}
-          {index === 3 && <Cars onChange={onChangeHandler} data={data} />}
-          {index === 4 && <Locations onChange={onChangeHandler} data={data} />}
-          <button disabled={formIsValid}>
+          {index === 0 && (
+            <Partners onChange={onChangeHandler} data={partnerData} />
+          )}
+          {index === 1 && <Jobs onChange={onChangeHandler} data={jobData} />}
+          {index === 2 && (
+            <Salaries onChange={onChangeHandler} data={salaryData} />
+          )}
+          {index === 3 && <Cars onChange={onChangeHandler} data={carData} />}
+          {index === 4 && (
+            <Locations onChange={onChangeHandler} data={locationData} />
+          )}
+          <button disabled={!formIsValid}>
             {index < 4 ? "Next" : "Click to see your future"}
           </button>
         </form>

@@ -1,4 +1,13 @@
-const Salaries = ({ onChange, data }) => {
+interface Props {
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  data: {
+    salary1: string;
+    salary2: string;
+    salary3: string;
+  };
+}
+
+const Salaries = ({ onChange, data }: Props) => {
   return (
     <>
       <input

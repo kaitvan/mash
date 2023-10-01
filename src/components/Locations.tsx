@@ -1,4 +1,13 @@
-const Locations = ({ onChange, data }) => {
+interface Props {
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  data: {
+    location1: string;
+    location2: string;
+    location3: string;
+  };
+}
+
+const Locations = ({ onChange, data }: Props) => {
   return (
     <>
       <input

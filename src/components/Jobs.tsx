@@ -1,4 +1,13 @@
-const Jobs = ({ onChange, data }) => {
+interface Props {
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  data: {
+    job1: string;
+    job2: string;
+    job3: string;
+  };
+}
+
+const Jobs = ({ onChange, data }: Props) => {
   return (
     <>
       <input

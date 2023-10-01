@@ -1,4 +1,13 @@
-const Partners = ({ onChange, data }) => {
+interface Props {
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  data: {
+    partner1: string;
+    partner2: string;
+    partner3: string;
+  };
+}
+
+const Partners = ({ onChange, data }: Props) => {
   return (
     <>
       <input
