@@ -75,3 +75,9 @@ button {
   color: #3b4fc5;
   background: white;
 }
+
+button:disabled {
+  background: lightgray;
+  color: darkgray;
+  cursor: default;
+}
