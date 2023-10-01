@@ -16,6 +16,7 @@ const Salaries = ({ onChange, data }: Props) => {
         name="salary1"
         value={data.salary1}
         onChange={onChange}
+        autoComplete="off"
       ></input>
       <input
         type="text"
@@ -23,6 +24,7 @@ const Salaries = ({ onChange, data }: Props) => {
         name="salary2"
         value={data.salary2}
         onChange={onChange}
+        autoComplete="off"
       ></input>
       <input
         type="text"
@@ -30,6 +32,7 @@ const Salaries = ({ onChange, data }: Props) => {
         name="salary3"
         value={data.salary3}
         onChange={onChange}
+        autoComplete="off"
       ></input>
     </>
   );

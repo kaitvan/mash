@@ -16,6 +16,7 @@ const Jobs = ({ onChange, data }: Props) => {
         name="job1"
         value={data.job1}
         onChange={onChange}
+        autoComplete="off"
       ></input>
       <input
         type="text"
@@ -23,6 +24,7 @@ const Jobs = ({ onChange, data }: Props) => {
         name="job2"
         value={data.job2}
         onChange={onChange}
+        autoComplete="off"
       ></input>
       <input
         type="text"
@@ -30,6 +32,7 @@ const Jobs = ({ onChange, data }: Props) => {
         name="job3"
         value={data.job3}
         onChange={onChange}
+        autoComplete="off"
       ></input>
     </>
   );

@@ -16,6 +16,7 @@ const Cars = ({ onChange, data }: Props) => {
         name="car1"
         value={data.car1}
         onChange={onChange}
+        autoComplete="off"
       ></input>
       <input
         type="text"
@@ -23,6 +24,7 @@ const Cars = ({ onChange, data }: Props) => {
         name="car2"
         value={data.car2}
         onChange={onChange}
+        autoComplete="off"
       ></input>
       <input
         type="text"
@@ -30,6 +32,7 @@ const Cars = ({ onChange, data }: Props) => {
         name="car3"
         value={data.car3}
         onChange={onChange}
+        autoComplete="off"
       ></input>
     </>
   );

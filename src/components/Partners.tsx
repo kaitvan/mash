@@ -16,6 +16,7 @@ const Partners = ({ onChange, data }: Props) => {
         name="partner1"
         value={data.partner1}
         onChange={onChange}
+        autoComplete="off"
       ></input>
       <input
         type="text"
@@ -23,6 +24,7 @@ const Partners = ({ onChange, data }: Props) => {
         name="partner2"
         value={data.partner2}
         onChange={onChange}
+        autoComplete="off"
       ></input>
       <input
         type="text"
@@ -30,6 +32,7 @@ const Partners = ({ onChange, data }: Props) => {
         name="partner3"
         value={data.partner3}
         onChange={onChange}
+        autoComplete="off"
       ></input>
     </>
   );

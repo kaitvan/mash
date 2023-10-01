@@ -16,6 +16,7 @@ const Locations = ({ onChange, data }: Props) => {
         name="location1"
         value={data.location1}
         onChange={onChange}
+        autoComplete="off"
       ></input>
       <input
         type="text"
@@ -23,6 +24,7 @@ const Locations = ({ onChange, data }: Props) => {
         name="location2"
         value={data.location2}
         onChange={onChange}
+        autoComplete="off"
       ></input>
       <input
         type="text"
@@ -30,6 +32,7 @@ const Locations = ({ onChange, data }: Props) => {
         name="location3"
         value={data.location3}
         onChange={onChange}
+        autoComplete="off"
       ></input>
     </>
   );
