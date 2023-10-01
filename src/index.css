@@ -8,3 +8,70 @@ body {
   background: linear-gradient(135deg, #3b4fc5 60%, #00c6c2);
   height: 100vh;
 }
+
+.card {
+  width: 50%;
+  min-width: 400px;
+  background: white;
+  height: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  box-shadow: 10px 10px black;
+  border: black solid 3px;
+}
+
+.title {
+  border-bottom: solid 3px black;
+  padding: 5px 10px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+h2 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-body {
+  padding: 20px 60px;
+  height: 300px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  line-height: 150%;
+}
+
+input {
+  display: block;
+  margin: 10px auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  text-transform: uppercase;
+  border-radius: none;
+  border: black solid 1px;
+  color: white;
+  background: #3b4fc5;
+  padding: 8px 20px;
+  display: block;
+  margin: 10px auto;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.button-alt {
+  color: #3b4fc5;
+  background: white;
+}
