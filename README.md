@@ -1,27 +1,18 @@
-# React + TypeScript + Vite
+# MASH
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I built this app based on a favorite childhood game. MASH is all about picking which of several futures you will have.
 
-Currently, two official plugins are available:
+The game always starts with MASH, which is an acronym for mansion, apartment, shack, and house. Then, you'll choose values for other categories like your partner, job, salary, car, and location. The app randomly selects a value for each category and voila! Every question you've ever had about your future will be answered.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Click this link to play!](https://mash-app.netlify.app/)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Users enter values in the fields for each category using a multi-page form with a minimalist design. Those values are stored using the react state hook and after selecting a random element from each set of values, the user can see their future!
 
-- Configure the top-level `parserOptions` property like this:
+## Technology
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- React
+- TypeScript
+- HTML
+- CSS
